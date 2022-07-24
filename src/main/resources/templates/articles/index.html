@@ -1,15 +1,14 @@
 <!doctype html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>게시판 페이지</title>
 </head>
 <body>
 
-    <header th:replace="header :: header"></header>
+    <header id="header"></header>
 
     <main>
-        검색창
         <form>
             <label for="search-type" hidden>유형</label>
             <select id="search-type" name="search-type">
@@ -73,7 +72,7 @@
         </nav>
     </main>
     <hr>
-    <footer th:replace="footer :: footer"></footer>
+    <footer id="footer"></footer>
 
 
 </body>
