@@ -1,5 +1,12 @@
+-- 테스트 계정
+-- TODO: 비밀번호 노출된 데이터 세팅 해결하기.
+insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at, modified_by) values
+    ('yun', 'asdf1234', 'Yun', 'yun@gmail.com', 'memo haha', now(), 'yun', now(), 'yun')
+;
+
+-- 123 게시글글
 insert into article (title, content, hashtag, created_by, modified_by, created_at, modified_at) values
-                                                                                                    ('Quisque ut erat.', 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
+                                                                                                   ('Quisque ut erat.', 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
 Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
 Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.', '#pink', 'Kamilah', 'Murial', '2021-05-30 23:53:46', '2021-03-10 08:48:50'),
                                                                                                     ('Morbi ut odio.', 'Phasellus in felis. Donec semper sapien a libero. Nam dui.
