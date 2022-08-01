@@ -43,7 +43,7 @@ class ArticleServiceTest {
         Page<ArticleDto> articles = sut.searchArticles(null, null, pageable);
 
         //Then
-        assertThat(articles).isNotEmpty();
+        assertThat(articles).isEmpty();
         then(articleRepository).should().findAll(pageable);
     }
 
@@ -54,14 +54,14 @@ class ArticleServiceTest {
         SearchType searchType = SearchType.TITLE;
         String searchKeyword = "title";
         Pageable pageable = Pageable.ofSize(20);
-        given(articleRepository.findByTitle(searchKeyword, pageable)).willReturn(Page.empty());
+        given(articleRepository.findByTitleContaining(searchKeyword, pageable)).willReturn(Page.empty());
 
         // When
         Page<ArticleDto> articles = sut.searchArticles(searchType, searchKeyword, pageable);
 
         // Then
         assertThat(articles).isEmpty();
-        then(articleRepository).should().findByTitle(searchKeyword, pageable);
+        then(articleRepository).should().findByTitleContaining(searchKeyword, pageable);
     }
 
     @DisplayName("게시글 조회 -> 게시글 반환")
@@ -198,7 +198,6 @@ class ArticleServiceTest {
 
     private UserAccountDto createUserAccountDto() {
         return UserAccountDto.of(
-                1L,
                 "yun",
                 "password",
                 "yun@mail.com",
