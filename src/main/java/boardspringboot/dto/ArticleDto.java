@@ -1,8 +1,8 @@
 package boardspringboot.dto;
 
 import boardspringboot.domain.Article;
+import boardspringboot.domain.UserAccount;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 public record ArticleDto(
@@ -20,6 +20,10 @@ public record ArticleDto(
         return new ArticleDto(id, userAccountDto, title, content, hashtag, createdAt, createdBy, modifiedAt, modifiedBy);
     }
 
+    public static ArticleDto of(UserAccountDto userAccountDto, String title, String content, String hashtag) {
+        return new ArticleDto(null, userAccountDto, title, content, hashtag, null, null, null, null);
+    }
+
     public static ArticleDto from(Article entity) {
         return new ArticleDto(
                 entity.getId(),
@@ -34,9 +38,9 @@ public record ArticleDto(
         );
     }
 
-    public Article toEntity() {
+    public Article toEntity(UserAccount userAccount) {
         return Article.of(
-                userAccountDto.toEntity(),
+                userAccount,
                 title,
                 content,
                 hashtag
