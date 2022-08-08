@@ -23,7 +23,7 @@ public class Article extends AuditingFields{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Getter @ManyToOne(optional = false) private UserAccount userAccount; //유저 정보 (ID)
+    @Getter @ManyToOne(optional = false) @JoinColumn(name = "userId") private UserAccount userAccount; //유저 정보 (ID)
 
     // Not Null 필드
     @Setter @Column(nullable = false)
